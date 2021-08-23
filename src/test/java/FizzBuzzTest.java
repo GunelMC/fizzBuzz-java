@@ -9,4 +9,11 @@ public class FizzBuzzTest {
         String result = subject.generate(1);
         assertEquals("1", result);
     }
+
+    @Test
+    void testGenerateListsNumbersUpToThree() {
+        FizzBuzz subject = new FizzBuzz();
+        String result = subject.generate(3);
+        assertEquals("1, 2, Fizz", result);
+    }
 }
