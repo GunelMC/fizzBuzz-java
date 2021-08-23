@@ -1,19 +1,10 @@
-import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class FizzBuzz {
     public String generate(Integer upto) {
-        ArrayList<String> newArray = new ArrayList<>();
-        for (int i = 1; i <= upto; i++) {
-            if (i % 15 == 0) {
-                newArray.add("FizzBuzz");
-            } else if (i % 3 == 0) {
-                newArray.add("Fizz");
-            } else if (i % 5 == 0) {
-                newArray.add("Buzz");
-            } else {
-                newArray.add(String.valueOf(i));
-            }
-        }
-        return String.join(", ", newArray);
+        List<String> results = IntStream.rangeClosed(1, upto).mapToObj((i) -> i % 15 == 0 ? "FizzBuzz" : (i % 3 == 0) ? "Fizz" : i % 5 == 0 ? "Buzz" : String.valueOf(i)).collect(Collectors.toList());
+        return String.join(", ", results);
     }
 }
